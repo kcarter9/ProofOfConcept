@@ -1,0 +1,78 @@
+'''
+Watcher App
+Created on Oct 21, 2022
+@author: Kristopher Carter
+'''
+class List:
+    def __init__(self, list_name):
+        self.list_name = list_name
+        self.media_list = []
+    
+    def add_media(self, new_media):
+        self.media_list.append(new_media)
+        
+    def print_media_list(self):
+        for item in self.media_list:
+            print(item)
+    
+
+def menu():
+    choice = input("""
+                        Welcome to Watcher!
+                        
+                        n - Start New List
+                        e - See Existing Lists
+                        a - Add Movie or Show to List
+                        
+                        q - Quit
+                        
+                        Selection: """)
+    print("\nYou chose: ", choice)
+    
+    if (choice == "n"):
+        new_list()
+    elif (choice == "e"):
+        existing_lists()
+    elif (choice == "a"):
+        add_media()
+    elif (choice == "q"):
+        print("Exiting. Have a nice day!")
+    else:
+        print("Invalid Choice: ", choice)
+        menu()
+
+
+def new_list():
+    list_name = input("What do you want to name your list? ")
+    list_obj = List(list_name)
+    print(list_obj.list_name)
+    
+
+
+def existing_lists():
+    pass
+
+
+def add_media():
+    new_media = input("What do you want to add to your new list? ")
+    list_obj.add_media(new_media)
+    list_obj.print_media_list()
+
+
+def main():
+    list_of_lists = []
+    
+    '''
+    media_list = []
+    userChoice = ""
+    while userChoice != "q":
+        userChoice = input("Enter a show or movie to add to your list ('q' to stop): ")
+        if userChoice != "q":
+            media_list.append(userChoice)
+    for item in media_list:
+        print(item)
+    '''
+    menu()
+        
+
+main()
